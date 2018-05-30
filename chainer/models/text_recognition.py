@@ -3,7 +3,7 @@ import chainer.links as L
 
 from chainer import Chain
 
-from models.fsns import ResnetBlock
+from chainer.models.fsns import ResnetBlock
 
 
 class TextRecognitionNet(Chain):

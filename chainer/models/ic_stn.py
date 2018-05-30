@@ -3,8 +3,8 @@ import chainer.functions as F
 
 from chainer import Chain, cuda, Deserializer
 
-from functions.rotation_droput import rotation_dropout
-from models.fsns import ResnetBlock
+from chainer.ffunctions.rotation_droput import rotation_dropout
+from chainer.fmodels.fsns import ResnetBlock
 
 
 class InverseCompositionalLocalizationNet(Chain):

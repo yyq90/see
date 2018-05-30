@@ -2,7 +2,7 @@ import chainer.functions as F
 
 from chainer import cuda
 
-from metrics.loss_metrics import LossMetrics
+from chainer.metrics.loss_metrics import LossMetrics
 
 
 class TextRectMetrics(LossMetrics):
