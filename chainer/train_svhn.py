@@ -11,16 +11,16 @@ import shutil
 from chainer.training.updaters import MultiprocessParallelUpdater
 from chainer.training import extensions
 
-from commands.interactive_train import open_interactive_prompt
-from datasets.file_dataset import FileBasedDataset
-from datasets.sub_dataset import split_dataset, split_dataset_n_random
-from insights.svhn_bbox_plotter import SVHNBBoxPlotter
-from metrics.svhn_softmax_metrics import SVHNSoftmaxMetrics
-from models.svhn import SVHNLocalizationNet, SVHNRecognitionNet, SVHNNet
-from utils.baby_step_curriculum import BabyStepCurriculum
-from utils.datatypes import Size
-from utils.multi_accuracy_classifier import Classifier
-from utils.train_utils import add_default_arguments, get_fast_evaluator, get_trainer, \
+from chainer.commands.interactive_train import open_interactive_prompt
+from chainer.datasets.file_dataset import FileBasedDataset
+from chainer.datasets.sub_dataset import split_dataset, split_dataset_n_random
+from chainer.insights.svhn_bbox_plotter import SVHNBBoxPlotter
+from chainer.metrics.svhn_softmax_metrics import SVHNSoftmaxMetrics
+from chainer.models.svhn import SVHNLocalizationNet, SVHNRecognitionNet, SVHNNet
+from chainer.utils.baby_step_curriculum import BabyStepCurriculum
+from chainer.utils.datatypes import Size
+from chainer.utils.multi_accuracy_classifier import Classifier
+from chainer.utils.train_utils import add_default_arguments, get_fast_evaluator, get_trainer, \
     concat_and_pad_examples
 
 if __name__ == "__main__":
