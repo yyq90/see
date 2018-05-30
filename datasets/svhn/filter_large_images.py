@@ -3,7 +3,7 @@ import os
 import shutil
 from PIL import Image
 
-from create_svhn_dataset_4_images import SUPPORTED_IMAGE_TYPES
+from datasets.svhn.create_svhn_dataset_4_images import SUPPORTED_IMAGE_TYPES
 
 
 def get_images(image_dir, images, min_width, min_height):

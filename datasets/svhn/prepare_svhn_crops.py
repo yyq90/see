@@ -5,7 +5,7 @@ import os
 import tqdm as tqdm
 from PIL import Image
 
-from create_svhn_dataset import BBox
+from datasets.svhn.create_svhn_dataset import BBox
 
 
 def merge_bboxes(bboxes):
