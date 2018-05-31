@@ -1,6 +1,6 @@
 from chainer import cuda
 import chainer.functions as F
-from chainer.metrics.softmax_metrics import SoftmaxMetrics
+from metrics.softmax_metrics import SoftmaxMetrics
 
 
 class SVHNSoftmaxMetrics(SoftmaxMetrics):

@@ -2,7 +2,8 @@ import argparse
 import copy
 import os
 
-
+import sys
+sys.path.append('d:\git\see\chainer')
 import chainer
 import datetime
 
@@ -11,19 +12,20 @@ import shutil
 from chainer.training.updaters import MultiprocessParallelUpdater
 from chainer.training import extensions
 
-from chainer.commands.interactive_train import open_interactive_prompt
-from chainer.datasets.file_dataset import FileBasedDataset
-from chainer.datasets.sub_dataset import split_dataset, split_dataset_n_random
-from chainer.insights.svhn_bbox_plotter import SVHNBBoxPlotter
-from chainer.metrics.svhn_softmax_metrics import SVHNSoftmaxMetrics
-from chainer.models.svhn import SVHNLocalizationNet, SVHNRecognitionNet, SVHNNet
-from chainer.utils.baby_step_curriculum import BabyStepCurriculum
-from chainer.utils.datatypes import Size
-from chainer.utils.multi_accuracy_classifier import Classifier
-from chainer.utils.train_utils import add_default_arguments, get_fast_evaluator, get_trainer, \
+from commands.interactive_train import open_interactive_prompt
+from datasets.file_dataset import FileBasedDataset
+from datasets.sub_dataset import split_dataset, split_dataset_n_random
+from insights.svhn_bbox_plotter import SVHNBBoxPlotter
+from metrics.svhn_softmax_metrics import SVHNSoftmaxMetrics
+from models.svhn import SVHNLocalizationNet, SVHNRecognitionNet, SVHNNet
+from utils.baby_step_curriculum import BabyStepCurriculum
+from utils.datatypes import Size
+from utils.multi_accuracy_classifier import Classifier
+from utils.train_utils import add_default_arguments, get_fast_evaluator, get_trainer, \
     concat_and_pad_examples
 
 if __name__ == "__main__":
+    args = '/see/datasets/svhn/train/digitStruct.json /see/svhn_log/ --char-map /see/datasets/svhn/svhn_char_map.json --blank-label 0 -b 64'
     parser = argparse.ArgumentParser(description="Tool to train a text detection network based on Spatial Transformers")
     parser.add_argument('dataset_specification',
                         help='path to json file that contains all datasets to use in a list of dicts')
@@ -50,7 +52,7 @@ if __name__ == "__main__":
     parser.add_argument("--test-image", help='path to an image that should be used by BBoxPlotter')
     parser = add_default_arguments(parser)
     args = parser.parse_args()
-
+    print(args)
     image_size = Size(width=200, height=200)
     target_shape = Size(width=50, height=50)
 

@@ -22,11 +22,12 @@ import optparse
 from json import JSONEncoder
 
 parser = optparse.OptionParser()
-parser.add_option("-f", dest="fin", help="Matlab full number SVHN input file", default="digitStruct.mat")
-parser.add_option("-o", dest="filePrefix", help="name for the json output file", default="digitStruct")
+parser.add_option("-f", dest="fin", help="Matlab full number SVHN input file", default="train\digitStruct.mat")
+parser.add_option("-o", dest="filePrefix", help="name for the json output file", default="train\digitStruct")
 (options,args)= parser.parse_args()
-
+print(1)
 fin = options.fin
+print(2)
 
 # The DigitStructFile is just a wrapper around the h5py data.  It basically references 
 #    inf:              The input h5 matlab file
@@ -99,10 +100,13 @@ class DigitStructFile:
             item['boxes'] = figures
             result.append(item)
         return result
+print(3)
 
 dsf = DigitStructFile(fin)
 dataset = dsf.getAllDigitStructure_ByDigit()
+print(4)
 fout = open(options.filePrefix + ".json",'w')
+print(5)
 fout.write(JSONEncoder(indent = True).encode(dataset))
 fout.close()
 

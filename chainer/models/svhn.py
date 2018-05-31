@@ -2,9 +2,9 @@ from chainer import Chain, cuda
 import chainer.functions as F
 import chainer.links as L
 
-from chainer.functions.rotation_droput import rotation_dropout
-from chainer.insights.visual_backprop import VisualBackprop
-from chainer.models.fsns import ResnetBlock
+from functions.rotation_droput import rotation_dropout
+from insights.visual_backprop import VisualBackprop
+from models.fsns import ResnetBlock
 
 
 class SVHNLocalizationNet(Chain):

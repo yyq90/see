@@ -1,0 +1,6 @@
+[
+    {
+        "train": "d:/git/see/trainSet/train",
+        "validation": "d:/git/see/trainSet/validate"
+    }
+]

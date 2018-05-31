@@ -27,8 +27,9 @@ class BabyStepCurriculum(extension.Extension):
         self.force_enlarge_dataset = False
 
         with open(dataset_specification) as specification:
+            print(specification)
             specification = json.load(specification)
-
+            print(specification)
             self.train_curriculum = {i: s['train'] for i, s in enumerate(specification)}
             self.validation_curriculum = {i: s['validation'] for i, s in enumerate(specification)}
 

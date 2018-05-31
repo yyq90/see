@@ -4,6 +4,8 @@ import json
 import os
 import tqdm as tqdm
 from PIL import Image
+import sys
+sys.path.append('d:\git\see')
 
 from datasets.svhn.create_svhn_dataset import BBox
 

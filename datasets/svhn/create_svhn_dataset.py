@@ -1,3 +1,5 @@
+
+
 import argparse
 import csv
 
@@ -11,7 +13,8 @@ from collections import namedtuple
 import numpy as np
 from PIL import Image
 from PIL import ImageStat
-
+import sys
+sys.path.append('d:\git\see')
 Point = namedtuple("Point", ['x', 'y'])
 
 
