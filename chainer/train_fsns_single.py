@@ -57,7 +57,7 @@ if __name__ == "__main__":
     parser.add_argument("--test-image", help='path to an image that should be used by BBoxPlotter')
     parser = add_default_arguments(parser)
 
-    args = parser.parse_args([ 'd:/git/see/datasets/fsns/curriculum.json','d:/git/see/datasets/fsns/log/','--char-map', 'd:/git/see/datasets/fsns/fsns_char_map.json', '--blank-label', '0', '-b', '64'
+    args = parser.parse_args([ 'd:/git/see/datasets/fsns/curriculum.json','d:/git/see/datasets/fsns/log','--char-map', 'd:/git/see/datasets/fsns/fsns_char_map.json', '--blank-label', '0', '-b', '64'
 ])
     args.is_original_fsns = True
 
@@ -168,9 +168,10 @@ if __name__ == "__main__":
     validation_iterator = chainer.iterators.MultiprocessIterator(validation_dataset, args.batch_size)
 
     # use the MultiProcessParallelUpdater in order to harness the full power of data parallel computation
-    updater = MultiprocessParallelUpdater(train_iterators, optimizer, devices=args.gpus)
-
-    log_dir = os.path.join(args.log_dir, "{}_{}".format(datetime.datetime.now().isoformat(), args.log_name))
+    # updater = MultiprocessParallelUpdater(train_iterators, optimizer, devices=args.gpus)
+    updater = chainer.training.StandardUpdater(train_iterators, optimizer)
+    # log_dir = os.path.join(args.log_dir, "{}_{}".format(datetime.datetime.now().isoformat(), args.log_name))
+    log_dir = os.path.join(args.log_dir, "{}".format( args.log_name))
     args.log_dir = log_dir
 
     # backup current file
@@ -217,7 +218,7 @@ if __name__ == "__main__":
         FastEvaluator(
             validation_iterator,
             model,
-            device=updater._devices[0],
+            # device=updater._devices[0],
             eval_func=lambda *args: model(*args),
             num_iterations=args.test_iterations,
             converter=concat_and_pad_examples
@@ -231,7 +232,7 @@ if __name__ == "__main__":
         chainer.training.extensions.Evaluator(
             epoch_validation_iterator,
             model,
-            device=updater._devices[0],
+            # device=updater._devices[0],
             converter=concat_and_pad_examples,
         ),
         (1, 'epoch')
