@@ -16,6 +16,7 @@ from chainer.dataset import dataset_mixin
 
 class FileBasedDataset(dataset_mixin.DatasetMixin):
 
+    # def __init__(self, dataset_file, file_contains_metadata=True, resize_size=None):
     def __init__(self, dataset_file, file_contains_metadata=True, resize_size=None):
         self.file_names = []
         self.labels = []
@@ -31,10 +32,13 @@ class FileBasedDataset(dataset_mixin.DatasetMixin):
                 self.num_timesteps, self.num_labels = (int(i) for i in next(reader))
             # then read all data
             for line in reader:
-                file_name = line[0]
-                labels = np.array(line[1:], dtype=np.int32)
-                self.file_names.append(file_name)
-                self.labels.append(labels)
+                try:
+                    file_name = line[0]
+                    labels = np.array(line[1:], dtype=np.int32)
+                    self.file_names.append(file_name)
+                    self.labels.append(labels)
+                except:
+                    continue
 
         assert len(self.file_names) == len(self.labels)
         label_length = len(self.labels[0])
