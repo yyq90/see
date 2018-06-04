@@ -69,7 +69,7 @@ class BBOXPlotter(Extension):
         self.upstream_ip = kwargs.pop("upstream_ip", '127.0.0.1')
         self.upstream_port = kwargs.pop("upstream_port", 1337)
         self.loss_metrics = loss_metrics
-        self.font = ImageFont.truetype("utils/DejaVuSans.ttf", 20)
+        self.font = ImageFont.truetype("d:/git/see/utils/DejaVuSansMono.ttf", 20)
         self.visualization_anchors = kwargs.pop("visualization_anchors", [])
         self.visual_backprop = VisualBackprop()
         self.xp = np
