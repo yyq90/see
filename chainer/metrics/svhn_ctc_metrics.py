@@ -1,6 +1,6 @@
 from chainer import cuda
 import chainer.functions as F
-from chainer.metrics.loss_metrics import LossMetrics
+from metrics.loss_metrics import LossMetrics
 
 
 class SVHNCTCMetrics(LossMetrics):

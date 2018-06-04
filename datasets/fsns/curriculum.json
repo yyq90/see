@@ -1,0 +1,6 @@
+[
+    {
+        "train": "D:/tempdata/gt/train_swap/train_swap.csv",
+        "validation": "D:/tempdata/gt/test_swap/test.csv"
+    }
+]

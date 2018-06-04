@@ -56,7 +56,9 @@ if __name__ == "__main__":
     parser.add_argument("--use-dropout", action='store_true', default=False, help='use dropout in network')
     parser.add_argument("--test-image", help='path to an image that should be used by BBoxPlotter')
     parser = add_default_arguments(parser)
-    args = parser.parse_args()
+
+    args = parser.parse_args([ 'd:/git/see/datasets/fsns/curriculum.json','d:/git/see/datasets/fsns/log/','--char-map', 'd:/git/see/datasets/fsns/fsns_char_map.json', '--blank-label', '0', '-b', '64'
+])
     args.is_original_fsns = True
 
     image_size = Size(width=150, height=150)

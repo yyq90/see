@@ -5,7 +5,7 @@ import chainer.links as L
 
 from chainer import cuda
 
-from chainer.metrics.loss_metrics import LossMetrics
+from metrics.loss_metrics import LossMetrics
 
 
 class PerStepLSTMMetric(LossMetrics):
